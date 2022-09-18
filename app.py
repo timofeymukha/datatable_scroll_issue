@@ -2,6 +2,7 @@ from dash import Dash, html, dcc, dash_table, Input, Output
 import dash_bootstrap_components as dbc
 import pandas as pd
 from datetime import datetime
+import numpy as np
 
 
 app = Dash(
@@ -42,8 +43,9 @@ def make_layout():
     cursive_text = " *Some nice text in cursive to show markdown* "
 
     for i in range(100):
+        n = 5*(i % 2)
         title_i = str(date) + cursive_text + \
-                  "\n" + "[" + 5*"The second lineeeeeeee " + "](https://www.github.com)"
+                  "\n" + "[" + (n + 5)*"The second lineeeeeeee " + "](https://www.github.com)"
 
         title.append(title_i)
 
@@ -89,7 +91,6 @@ def make_layout():
 
 app.title = "Dash DataTable Scroll Issue Demonstrator"
 app.layout = make_layout
-server = app.server
 
 if __name__ == "__main__":
     app.run_server()
