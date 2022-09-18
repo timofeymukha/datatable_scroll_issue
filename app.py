@@ -91,6 +91,7 @@ def make_layout():
 
 app.title = "Dash DataTable Scroll Issue Demonstrator"
 app.layout = make_layout
+server = app.server
 
 if __name__ == "__main__":
     app.run_server()
